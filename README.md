@@ -10,3 +10,7 @@ in our article "	Interface reconstruction of adhering droplets for distortion co
 The datasets used in this work, as well as the weights of the neural networks trained for interface reconstruction on these datasets are available here: https://doi.org/10.35097/egqrfznmr9yp2s7f
 
 If you have any questions regarding this code, please feel free to contact Maximilian Dreisbach (maximilian.dreisbach@kit.edu).
+
+### Evaluation
+
+python ./apps/eval.py 
