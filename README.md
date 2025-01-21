@@ -20,6 +20,6 @@ If you have any questions regarding this code, please feel free to contact Maxim
 
 python ./apps/eval.py 
 
-
+## Related Research
 This code is an extension of "PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization" by Saito et al. (2019) \
 (see https://github.com/shunsukesaito/PIFu)
