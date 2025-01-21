@@ -35,11 +35,11 @@ for training and data generation
 - Download network weights and create checkpoints folder
 - OR train the network on new data (see below)
 - Run eval.py
-- Open .obj file of reconstructed interface in Meshlab, Blender,or any 3D visualization software 
+- Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ### Evaluation
 
-python ./apps/eval.py 
+python -m apps.eval --name {name of experiment} --test_folder_path {path to processed image data} --load_netG_checkpoint_path {path to network weights}
 
 ## Related Research
 This code is an extension of "PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization" by Saito et al. (2019) \
