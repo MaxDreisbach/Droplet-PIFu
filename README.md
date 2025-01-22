@@ -58,14 +58,15 @@ python -m apps.prt_util_batch
 ```
 2. The following script creates renderings, masks, and calibration matrices representing the relative orientation of the renderings and 3D geometries. The files are saved in newly created folders named `GEO`, `RENDER`, `MASK`, `PARAM`, `UV_RENDER`, `UV_MASK`, `UV_NORMAL`, and `UV_POS` under the specified training data path. Adjust the path to the `.obj` files in `prt_util_batch.py`.
 ```
-python -m apps.render_data_batch -i {path_to_OBJ} -o {path_to_training_data}
+python -m apps.render_data_batch
 ```
 3. Run the synhetic training data generation in Blender https://github.com/MaxDreisbach/RenderGPS
 4. Copy the renderings from blender into the `RENDER` folder
 
 ## Training (Linux Only)
-The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. \
-1. Run the following script to train the reconstruction network. The intermediate checkpoints are saved under `./checkpoints`. You can add `--batch_size` and `--num_sample_input` flags to adjust the batch size and the number of sampled points based on available GPU memory. The flags `--random_scale`, and `--random_trans` enable data augmentation and perform random scaling and random cropping and translation of the images and associated 3D geometries.
+The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. 
+
+Run the following script to train the reconstruction network. The intermediate checkpoints are saved under `./checkpoints`. You can add `--batch_size` and `--num_sample_input` flags to adjust the batch size and the number of sampled points based on available GPU memory. The flags `--random_scale`, and `--random_trans` enable data augmentation and perform random scaling and random cropping and translation of the images and associated 3D geometries.
 ```
 python -m apps.train_shape --dataroot {path_to_training_data} --random_scale --random_trans
 ```
