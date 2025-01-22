@@ -46,7 +46,7 @@ for training and data generation
 
 ## Data Generation (Linux Only)
 The data generation uses codes adapted from PIFu by Saito et al. (2019), see https://github.com/shunsukesaito/PIFu for further reference.
-The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow.
+The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. \
 First, binary masks, placeholder renderings, and calibration matrices representing the relative orientation of the renderings and 3D geometries are computed.
 Then, physically-based rendering in Blender is used to generate realistic synethtic images resembling the recordings from the experiments.
 
@@ -60,6 +60,13 @@ python -m apps.render_data_batch -i {path_to_OBJ} -o {path_to_training_data}
 ```
 3. Run the synhetic training data generation in Blender https://github.com/MaxDreisbach/RenderGPS
 4. Copy the renderings from blender into the `RENDER` folder
+
+## Training (Linux Only)
+
+1. run the following script to train the reconstruction network. The intermediate results and checkpoints are saved under `./results` and `./checkpoints`, respectively. You can add `--batch_size` and `--num_sample_input` flags to adjust the batch size and the number of sampled points based on available GPU memory. The flags `--random_scale`, and `--random_trans` enable data augmentation and perform random scaling and random cropping and translation of the images and associated 3D geometries.
+```
+python -m apps.train_shape --dataroot {path_to_training_data} --random_scale --random_trans
+```
 
 ## Related Research
 This code is an extension of "PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization" by Saito et al. (2019) \
