@@ -34,12 +34,13 @@ for training and data generation
 - Create conda environment from requirements.txt (conda create --name <env> --file requirements.txt)
 - Download pre-processed glare-point shadowgraphy images from https://doi.org/10.35097/egqrfznmr9yp2s7f
 - OR use processing scripts on own data (see https://github.com/MaxDreisbach/GPS-Processing)
-- Download network weights and create checkpoints folder
+- Download network weights and move it to `./Droplet-PIFu/checkpoints/`
 - OR train the network on new data (see below)
 - Run eval.py forvolumetric reconstruction (see below)
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ## Evaluation
+This script reconstructs each image into an `.obj` file under `./PIFu/results/name_of_experiment` represnting the 3D gas-liquid interface.
 
 `python -m apps.eval --name {name_of_experiment} --test_folder_path {path_to_processed_image_data} --load_netG_checkpoint_path {path_to_network_weights}`
 
@@ -47,14 +48,15 @@ for training and data generation
 ## Data Generation (Linux Only)
 The data generation uses codes adapted from PIFu by Saito et al. (2019), see https://github.com/shunsukesaito/PIFu for further reference.
 The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. \
-First, binary masks, placeholder renderings, and calibration matrices representing the relative orientation of the renderings and 3D geometries are computed.
+The data generation requires `.obj` files of ground truth 3D gas-liquid interfaces, e.g. obtained by numerical simulation. 
+First, binary masks, placeholder renderings, and calibration matrices are computed from the specified `.obj` files.
 Then, physically-based rendering in Blender is used to generate realistic synethtic images resembling the recordings from the experiments.
 
-1. The following script precomputes spherical harmonics coefficients for rendering.
+1. The following script precomputes spherical harmonics coefficients for rendering. Adjust the path to the `.obj` files in `prt_util_batch.py`.
 ```
-python -m apps.prt_util_batch -i {path_to_OBJ}
+python -m apps.prt_util_batch
 ```
-2. The following script creates renderings, masks, and calibration matrices. The files are saved in newly created folders named `GEO`, `RENDER`, `MASK`, `PARAM`, `UV_RENDER`, `UV_MASK`, `UV_NORMAL`, and `UV_POS` under the specified training data path
+2. The following script creates renderings, masks, and calibration matrices representing the relative orientation of the renderings and 3D geometries. The files are saved in newly created folders named `GEO`, `RENDER`, `MASK`, `PARAM`, `UV_RENDER`, `UV_MASK`, `UV_NORMAL`, and `UV_POS` under the specified training data path. Adjust the path to the `.obj` files in `prt_util_batch.py`.
 ```
 python -m apps.render_data_batch -i {path_to_OBJ} -o {path_to_training_data}
 ```
