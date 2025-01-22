@@ -6,7 +6,7 @@ by Maximilian Dreisbach (Institute of Fluid Mechanics (ISTM) - Karlsruhe Institu
 
 This code allows for the evalution and training of neural networks for spatio-temporal gas-liquid interface reconstruction in two-phase flows as presented 
 in the research article "Interface reconstruction of adhering droplets for distortion correction using glare points and deep learning". \
-The datasets used in this work, as well as the weights of the neural networks trained for interface reconstruction on these datasets are available here: https://doi.org/10.35097/egqrfznmr9yp2s7f
+The datasets used in this work, as well as the weights of the neural networks trained for interface reconstruction on these datasets are available on [KITopen](https://doi.org/10.35097/egqrfznmr9yp2s7f).
 
 If you have any questions regarding this code, please feel free to contact Maximilian Dreisbach (maximilian.dreisbach@kit.edu).
 
@@ -31,22 +31,22 @@ for training and data generation
 (see requirements.txt)
 
 ## Getting Started
-- Create conda environment from requirements.txt (conda create --name <env> --file requirements.txt)
+- Create conda environment from requirements.txt (`conda create --name <env> --file requirements.txt`)
 - Download pre-processed glare-point shadowgraphy images from https://doi.org/10.35097/egqrfznmr9yp2s7f
-- OR use processing scripts on own data (see https://github.com/MaxDreisbach/GPS-Processing)
+- OR use processing scripts on own data (see [GPS-Processing GitHub](https://github.com/MaxDreisbach/GPS-Processing))
 - Download network weights and move it to `./Droplet-PIFu/checkpoints/`
 - OR train the network on new data (see below)
 - Run eval.py forvolumetric reconstruction (see below)
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ## Evaluation
-This script reconstructs each image into an `.obj` file under `./PIFu/results/name_of_experiment` represnting the 3D gas-liquid interface.
+This script reconstructs each image in `path_to_processed_image_data` into an `.obj` file under `./PIFu/results/name_of_experiment` representing the 3D gas-liquid interface.
 
 `python -m apps.eval --name {name_of_experiment} --test_folder_path {path_to_processed_image_data} --load_netG_checkpoint_path {path_to_network_weights}`
 
 
 ## Data Generation (Linux Only)
-The data generation uses codes adapted from PIFu by Saito et al. (2019), see https://github.com/shunsukesaito/PIFu for further reference.
+The data generation uses codes adapted from PIFu by Saito et al. (2019), see [PIFu GitHub](https://github.com/shunsukesaito/PIFu) for further reference.
 The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. \
 The data generation requires `.obj` files of ground truth 3D gas-liquid interfaces, e.g. obtained by numerical simulation. 
 First, binary masks, placeholder renderings, and calibration matrices are computed from the specified `.obj` files.
@@ -73,4 +73,4 @@ python -m apps.train_shape --dataroot {path_to_training_data} --random_scale --r
 
 ## Related Research
 This code is an extension of "PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization" by Saito et al. (2019) \
-(see https://github.com/shunsukesaito/PIFu)
+(see [PIFu GitHub](https://github.com/shunsukesaito/PIFu))
