@@ -36,7 +36,7 @@ for training and data generation
 - OR use processing scripts on own data (see [GPS-Processing GitHub](https://github.com/MaxDreisbach/GPS-Processing))
 - Download network weights and move it to `./Droplet-PIFu/checkpoints/`
 - OR train the network on new data (see below)
-- Run eval.py forvolumetric reconstruction (see below)
+- Run eval.py for volumetric reconstruction (see below)
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ## Evaluation
