@@ -34,7 +34,7 @@ for training and data generation
 - Create conda environment from requirements.txt (`conda create --name <env> --file requirements.txt`)
 - Download pre-processed glare-point shadowgraphy images from [KITopen](https://doi.org/10.35097/egqrfznmr9yp2s7f)
 - OR use processing scripts on own data (see [GPS-Processing GitHub](https://github.com/MaxDreisbach/GPS-Processing))
-- Download network weights and move it to `./Droplet-PIFu/checkpoints/`
+- Download network weights and move the file to `./Droplet-PIFu/checkpoints/`
 - OR train the network on new data (see below)
 - Run eval.py for volumetric reconstruction (see below)
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
