@@ -1,7 +1,7 @@
 # Droplet-PIFu:Interface reconstruction of adhering droplets for distortion correction using glare points and deep learning \
 by Maximilian Dreisbach (Institute of Fluid Mechanics (ISTM) - Karlsruhe Institute of Technology (KIT))
 
-[![Preprint](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2501.03453)
+[![Preprint](https://img.shields.io/badge/arxiv-preprint-blue)](https://arxiv.org/abs/2501.03453)
 
 
 This code allows for the evalution and training of neural networks for spatio-temporal gas-liquid interface reconstruction in two-phase flows as presented 
