@@ -40,7 +40,7 @@ for training and data generation
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ## Evaluation
-This script reconstructs each image in `path_to_processed_image_data` into an `.obj` file under `./PIFu/results/name_of_experiment` representing the 3D gas-liquid interface.
+This script reconstructs each image in `path_to_processed_image_data` into an `.obj` file representing the 3D gas-liquid interface and saves it under `./PIFu/results/name_of_experiment`.
 
 `python -m apps.eval --name {name_of_experiment} --test_folder_path {path_to_processed_image_data} --load_netG_checkpoint_path {path_to_network_weights}`
 
@@ -48,11 +48,11 @@ This script reconstructs each image in `path_to_processed_image_data` into an `.
 ## Data Generation (Linux Only)
 The data generation uses codes adapted from PIFu by Saito et al. (2019), see [PIFu GitHub](https://github.com/shunsukesaito/PIFu) for further reference.
 The following code should be run with [pyembree](https://github.com/scopatz/pyembree), as it is otherwise very slow. \
-The data generation requires `.obj` files of ground truth 3D gas-liquid interfaces, e.g. obtained by numerical simulation. 
+The data generation requires `.obj` files of ground truth 3D gas-liquid interfaces, obtained e.g. by numerical simulation. 
 First, binary masks, placeholder renderings, and calibration matrices are computed from the specified `.obj` files.
-Then, physically-based rendering in Blender is used to generate realistic synethtic images resembling the recordings from the experiments.
+Then, physically-based rendering in Blender is used to generate realistic synthetic images resembling the recordings from the experiments.
 
-1. The following script precomputes spherical harmonics coefficients for rendering. Adjust the path to the `.obj` files in `prt_util_batch.py`.
+1. The following script precomputes spherical harmonic coefficients for rendering. Adjust the path to the `.obj` files in `prt_util_batch.py`.
 ```
 python -m apps.prt_util_batch
 ```
