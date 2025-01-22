@@ -1,4 +1,4 @@
-# Droplet-PIFu:Interface reconstruction of adhering droplets for distortion correction using glare points and deep learning \
+# Droplet-PIFu: Interface reconstruction of adhering droplets for distortion correction using glare points and deep learning
 by Maximilian Dreisbach (Institute of Fluid Mechanics (ISTM) - Karlsruhe Institute of Technology (KIT))
 
 [![Preprint](https://img.shields.io/badge/arxiv-preprint-blue)](https://arxiv.org/abs/2501.03453)
@@ -36,12 +36,12 @@ for training and data generation
 - OR use processing scripts on own data (see https://github.com/MaxDreisbach/GPS-Processing)
 - Download network weights and create checkpoints folder
 - OR train the network on new data (see below)
-- Run eval.py
+- Run eval.py (see below)
 - Open .obj file of reconstructed interface in Meshlab, Blender, or any 3D visualization software 
 
 ### Evaluation
 
-python -m apps.eval --name {name of experiment} --test_folder_path {path to processed image data} --load_netG_checkpoint_path {path to network weights}
+`python -m apps.eval --name {name of experiment} --test_folder_path {path to processed image data} --load_netG_checkpoint_path {path to network weights}`
 
 ## Related Research
 This code is an extension of "PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization" by Saito et al. (2019) \
