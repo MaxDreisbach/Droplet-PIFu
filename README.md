@@ -4,7 +4,7 @@ by Maximilian Dreisbach (Institute of Fluid Mechanics (ISTM) - Karlsruhe Institu
 [![Preprint](https://img.shields.io/badge/arxiv-preprint-blue)](https://arxiv.org/abs/2501.03453)
 
 
-This code allows for the evalution and training of neural networks for spatio-temporal gas-liquid interface reconstruction in two-phase flows as presented 
+This code allows for the evaluation and training of neural networks for spatio-temporal gas-liquid interface reconstruction in two-phase flows as presented 
 in the research article "Interface reconstruction of adhering droplets for distortion correction using glare points and deep learning". \
 The datasets used in this work, as well as the weights of the neural networks trained for interface reconstruction on these datasets are available on [KITopen](https://doi.org/10.35097/egqrfznmr9yp2s7f).
 
